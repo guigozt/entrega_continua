@@ -20,7 +20,7 @@ jobs:
           python-version: '3.12'
 
       - name: Instalar dependencias
-        uses: pip install pytest
+        run: pip install pytest
 
       - name: Executar testes
         working-directory: Calculator
