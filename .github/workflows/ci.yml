@@ -1,0 +1,46 @@
+name: CI Java
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Testes unitários
+        working-directory: Calculator_2
+        run: mvn test
+
+      - name: Cobertura de código
+        working-directory: Calculator_2
+        run: mvn jacoco:check
+
+      - name: Linter
+        working-directory: Calculator_2
+        run: mvn checkstyle:check
+
+      - name: Análise de segurança
+        uses: trufflesecurity/trufflehog@main
+        with:
+          extra_args: --results=verified,unknown
+
+      - name: Build
+        working-directory: Calculator_2
+        run: mvn package
