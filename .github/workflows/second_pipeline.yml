@@ -21,10 +21,7 @@ jobs:
           distribution: 'temurin'
 
       - name : Compilator Java
-        working-directory: Calculator_2
-        run: javac Main.java
+        run: javac Calculator_2/Main.java
 
       - name: Executar Java
-        working-directory: Calculator_2
-        run: java Main
-
+        run: java Calculator_2.Main
