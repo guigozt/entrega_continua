@@ -1,46 +1,39 @@
-name: CI Java
+name: CI Node.js
 
 on:
   push:
     branches: [main]
-
   pull_request:
     branches: [main]
 
 jobs:
-
   ci:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Baixar código
         uses: actions/checkout@v4
 
-      - name: Configurar Java
-        uses: actions/setup-java@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
-          java-version: '21'
-          distribution: 'temurin'
-          cache: maven
+          java-version: '20'
+          cache: 'npm'
+          cache-dependency-path: Calculator_2/package-lock.json
 
-      - name: Testes unitários
+      - name: Instalar dependências
         working-directory: Calculator_2
-        run: mvn test
-
-      - name: Cobertura de código
-        working-directory: Calculator_2
-        run: mvn jacoco:check
+        run: npm ci
 
       - name: Linter
         working-directory: Calculator_2
-        run: mvn checkstyle:check
+        run: npm run lint
+
+      - name: Testes unitários e Cobertura
+        working-directory: Calculator_2
+        run: npm run test:coverage
 
       - name: Análise de segurança
         uses: trufflesecurity/trufflehog@main
         with:
           extra_args: --results=verified,unknown
-
-      - name: Build
-        working-directory: Calculator_2
-        run: mvn package
