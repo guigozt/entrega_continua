@@ -31,7 +31,7 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: python -m pip install pytest
+        run: python -m pip install -r requirements.txt
 
       - name: Executar testes da calculadora
         working-directory: Calculator
