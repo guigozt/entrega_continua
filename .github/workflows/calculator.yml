@@ -62,7 +62,7 @@ jobs:
         run: pip install pytest
 
       - name: Testar multiplicação
-        working-directory: Calculator_python
+        working-directory: Calculator
         run: pytest test_multiplica.py -k test_multiplicar
 
 
@@ -82,5 +82,5 @@ jobs:
         run: pip install pytest
 
       - name: Testar divisão
-        working-directory: Calculator_python
+        working-directory: Calculator
         run: pytest test_dividir.py
