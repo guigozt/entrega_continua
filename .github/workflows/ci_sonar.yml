@@ -1,4 +1,4 @@
-name: ci_sonar
+name: CI SonarQube
 
 on:
   push:
@@ -37,6 +37,6 @@ jobs:
           pytest --cov=. --cov-report=xml
 
       - name: Análise com SonarQube
-        uses: SonarSource/sonarqube-scan-action@v8
+        uses: SonarSource/sonarqube-scan-action@v7
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
