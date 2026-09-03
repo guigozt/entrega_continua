@@ -3,8 +3,13 @@ name: Second Pipeline
 on:
   push:
     branches: [main]
+    paths:
+      - 'Calculator_2/**'
+
   pull_request:
     branches: [main]
+    paths:
+      - 'Calculator_2/**'
 
 jobs:
   test:
@@ -14,14 +19,15 @@ jobs:
       - name: Baixar Código do Repositório
         uses: actions/checkout@v4
 
-      - name: Configurar Java
-        uses: actions/setup-java@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
-          java-version: '21'
-          distribution: 'temurin'
+          node-version: '22'
 
-      - name : Compilator Java
-        run: javac Calculator_2/Main.java
+      - name: Instalar dependências
+        working-directory: Calculator_2
+        run: npm install
 
-      - name: Executar Java
-        run: java Calculator_2.Main
+      - name: Executar testes
+        working-directory: Calculator_2
+        run: npm test

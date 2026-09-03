@@ -3,8 +3,13 @@ name: First Pipeline
 on:
   push:
     branches: [main]
+    paths:
+      - 'Calculator/**'
+
   pull_request:
     branches: [main]
+    paths:
+      - 'Calculator/**'
 
 jobs:
   test:

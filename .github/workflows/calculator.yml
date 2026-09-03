@@ -3,11 +3,15 @@ name: Calculator
 on:
   push:
     branches: [main]
+    paths:
+      - 'Calculator/**'
+
   pull_request:
     branches: [main]
+    paths:
+      - 'Calculator/**'
 
 jobs:
-
   somar:
     runs-on: ubuntu-latest
 
@@ -62,9 +66,8 @@ jobs:
         run: pip install pytest
 
       - name: Testar multiplicação
-        working-directory: Calculator_python
+        working-directory: Calculator
         run: pytest test_multiplica.py -k test_multiplicar
-
 
   dividir:
     runs-on: ubuntu-latest
@@ -82,5 +85,5 @@ jobs:
         run: pip install pytest
 
       - name: Testar divisão
-        working-directory: Calculator_python
-        run: pytest test_dividir.py
+        working-directory: Calculator
+        run: pytest test_dividi.py
