@@ -1,4 +1,5 @@
 class Calculator {
+
   somar(n1, n2) {
     return n1 + n2;
   }
@@ -12,8 +13,13 @@ class Calculator {
   }
 
   dividir(n1, n2) {
-    return n2 !== 0 ? n1 / n2 : NaN;
+    if (n2 === 0) {
+      throw new Error("Não é possível dividir por zero");
+    }
+
+    return n1 / n2;
   }
+
 }
 
 module.exports = Calculator;

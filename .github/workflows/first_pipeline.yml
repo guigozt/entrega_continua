@@ -1,6 +1,8 @@
 name: First Pipeline
 
 on:
+  workflow_dispatch:
+
   push:
     branches: [main]
     paths:
@@ -24,7 +26,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Instalar dependencias
+      - name: Instalar dependências
         run: pip install pytest
 
       - name: Executar testes

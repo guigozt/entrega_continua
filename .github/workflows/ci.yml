@@ -1,6 +1,8 @@
 name: CI Node.js
 
 on:
+  workflow_dispatch:
+
   push:
     branches: [main]
     paths:
@@ -23,7 +25,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: npm
           cache-dependency-path: Calculator_2/package-lock.json
 
       - name: Instalar dependências
