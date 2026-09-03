@@ -46,6 +46,17 @@ jobs:
         run: |
           pytest --cov=. --cov-report=xml
 
+      - name: Verificar SONAR_TOKEN
+        run: |
+          if [ -z "$SONAR_TOKEN" ]; then
+            echo "❌ SONAR_TOKEN NÃO FOI ENCONTRADO"
+            exit 1
+          else
+            echo "✅ SONAR_TOKEN FOI ENCONTRADO"
+          fi
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
       - name: Análise com SonarQube
         uses: SonarSource/sonarqube-scan-action@v7
         env:
