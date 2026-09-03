@@ -3,17 +3,9 @@ name: CI SonarQube
 on:
   push:
     branches: [main]
-    paths:
-      - 'Calculator/**'
-      - 'sonar-project.properties'
-      - 'requirements.txt'
 
   pull_request:
     branches: [main]
-    paths:
-      - 'Calculator/**'
-      - 'sonar-project.properties'
-      - 'requirements.txt'
 
 jobs:
   quality:
