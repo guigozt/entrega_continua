@@ -89,3 +89,9 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v7
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  deploy:
+    needs: [build-e-artefato, analise-sonar]
+    runs-on: ubuntu-latest
+    environment:
+      name: production
