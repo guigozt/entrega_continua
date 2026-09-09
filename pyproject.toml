@@ -9,3 +9,6 @@ description = "Calculadora Python para CI/CD"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
+
+[tool.setuptools]
+packages = ["Calculator"]
