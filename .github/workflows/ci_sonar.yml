@@ -49,6 +49,6 @@ jobs:
           pytest --cov=. --cov-report=xml
 
       - name: Análise com SonarQube
-        uses: SonarSource/sonarqube-scan-action@v7
+        uses: SonarSource/sonarqube-scan-action@v8
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
