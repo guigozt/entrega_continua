@@ -55,7 +55,7 @@ jobs:
           python -m build
 
       - name: Gerar artefato ZIP
-        run: zip -r pipeline-demo.zip -x "*.git*"
+        run: zip -r pipeline-demo.zip . -x "*.git*" "*.github*" "*.venv*" "*.pytest_cache*""
 
       - name: Publicar artefato
         uses: actions/upload-artifact@v4
