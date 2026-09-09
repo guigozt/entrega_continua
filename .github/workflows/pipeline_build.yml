@@ -95,3 +95,11 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
+    steps:
+      - name: Baixar artefato
+        uses: actions/download-artifact@v4
+        with:
+          name: codigo-buildado
+
+      - name: Realizar Deploy
+        run: echo "Deploy em produção realizado com sucesso!"
