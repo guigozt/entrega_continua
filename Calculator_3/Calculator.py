@@ -1,4 +1,3 @@
-```python
 while True:
     print("\n===== CALCULADORA =====")
     print("1 - Somar")
@@ -38,6 +37,3 @@ while True:
 
     else:
         print("Opção inválida! Escolha uma opção de 1 a 5.")
-```
-
-O `while True` mantém o menu funcionando continuamente. Quando o usuário escolhe **5**, o `break` encerra o loop e fecha a calculadora.
