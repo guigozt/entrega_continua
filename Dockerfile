@@ -2,7 +2,7 @@
 FROM python:3.12-slim
 
 # 2. Pasta de aplicação
-WORKDIR /app
+WORKDIR /Calculator_3
 
 # 3. Copia de arquivos de dependencias
 COPY requirements.txt .
@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5000
 
 # 6. Ligar aplicação
-CMD ["python", "app.py"]
+CMD ["python", "Calculator.py"]
