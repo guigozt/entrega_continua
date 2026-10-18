@@ -58,7 +58,7 @@ jobs:
         run: zip -r pipeline-demo.zip . -x "*.git*" "*.github*" "*.venv*" "*.pytest_cache*"
 
       - name: Publicar artefato
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: codigo-buildado
           path: pipeline-demo.zip
